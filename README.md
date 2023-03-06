@@ -1,6 +1,6 @@
 # Informasjonsteknologi 2
 
-[Når og hvorfor brukes objektorientert programmering?](innhold/1_motivasjon.md) **(ferdig)**
+[Når og hvorfor brukes objektorientert programmering?](innhold/1_introduksjon.md) **(ferdig)**
 
 Dette er ment som en første introduksjon og motivasjon for videre lesning. Noen veldig enkle eksempler er gitt i Python.
  
