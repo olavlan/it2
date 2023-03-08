@@ -96,17 +96,28 @@ Vi kan nå tegne et klassediagram der vi tar med alle relasjonene vi har funnet:
 
 Her har vi ikke skrevet "har" og "arver fra", siden denne informasjonen allerede finnes i diagrammet!
 
-- Diamantform betyr "har"-relasjon. 
+1. Diamantform betyr "har"-relasjon. 
 	- Diamantform uten fyll er en svak "har"-relasjon.  En bok kan eksistere uten å være i en bokhylle, så denne "har"-relasjonen er svak. 
 	- Diamantform med fyll er en sterk "har"-relasjon.  Bokanmeldelser eksisterer kun som en del av en bok, så denne "har"-relasjonen er sterk.  
-- Pil uten fyll betyr "arver fra"-relasjon.
+2. Pil uten fyll betyr "arver fra"-relasjon.
 
-Hvis du forstår dette klassediagrammet, har du antagelig en god forståelse av relasjoner mellom klasser, og du kjenner også de viktigste delene av et UML-klassediagram! Vi har nemlig tatt i bruk alle delene av UML som vi har lært: 
+Merk hvor enkel `Bok`-klassen har blitt fordi vi har delegert ansvar til andre klasser:
 
-- Legge til konstruktører
-- Angi datatyper på egenskaper, parametre og returverdier
-- Angi om metoder skal være private eller offentlige
-- Angi relasjoner mellom mellom klasser
+1. Ansvar for bokanmeldelser er delegert til klassen `Bokanmeldelser`. For å få tilgang til egenskapene og metodene til denne klassen, må vi bruke pekeren `bokanmeldelser`, som kobler en bok til sine anmeldelser. 
+2. Ansvar for utlån er delegert til superklassen `Utlånsobjekt`. Klassen`Bok` får alle egenskapene og metodene til superklassen. 
+
+Det kan være en god øvelse å komme tilbake til klassediagrammet over, og gjenta følgende konsepter:  
+
+* Relasjoner mellom klasser
+	* "Har"-relasjon
+	* "Arver fra"-relasjon
+* Tegne UML-klassediagram
+	- Legge til konstruktører
+	- Angi datatyper på egenskaper, parametre og returverdier
+	- Angi om metoder skal være private eller offentlige
+	- Angi relasjoner mellom klasser
+
+I klassediagrammet ovenfor vises eksempler på alle disse punktene.
 
 ## Oppsummering
 
