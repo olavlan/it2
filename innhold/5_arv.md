@@ -32,7 +32,7 @@ Her kan vi benytte oss av *arv*. Måten vi gjør det på er å lage en basisklas
 
 <img src="superklasse2.svg" width="50%">
 
-De første to pilene viser at `Film` -og `Bok`-klassen får alle datafelteme og metodeme som finnes i basisklassen. Derfor trenger vi bare å skrive de spesifikke delene som handler om filmer og bøker. Når vi oppretter objekter, får vi med både basisdelene og de spesifikke delene. 
+De første to pilene viser at `Film` -og `Bok`-klassen får alle datafeltene og metodene som finnes i basisklassen. Derfor trenger vi bare å skrive de spesifikke delene som handler om filmer og bøker. Når vi oppretter objekter, får vi med både basisdelene og de spesifikke delene. 
 
 
 ## Superklasser
@@ -47,7 +47,7 @@ Nå kan vi opprette `Utlån`-objekter! Det trenger bare å være noe vi ønsker 
 
 Det er lett å tenke at vi her bør opprette nye klasser med navn "Spill" og "Tegneserie". Men foreløpig ønsker vi ikke å gjøre spesifikke handlinger med spill eller tegneserier. Hvis alt vi ønsker å gjøre med spill og tegneserier er å låne dem ut, så er det best å betrakte dem som utlånsobjekter. 
 
-På bøker og filmer ønsker vi derimot å gjøre spesifikke handlinger, som å hente informasjon og anmeldelser på nett. Derfor gir det mening å opprette klasser der vi kan definere disse handlingene. Men siden bøker og filmer også er utlånsobjekter, så må vi sørge for at `Bok` og `Film` arver alle datafeltene til `Utlånsobjekt`. Dette viser vi med følgende piler: 
+På bøker og filmer ønsker vi derimot å gjøre spesifikke handlinger, som å hente informasjon og anmeldelser på nett. Derfor gir det mening å opprette klasser der vi kan definere disse handlingene. Men siden bøker og filmer også er utlånsobjekter, så må vi sørge for at `Bok` og `Film` arver alle datafeltene og metodene til `Utlånsobjekt`. Dette viser vi med følgende piler: 
 
 <img src="klasser_arv.svg" width="50%">
  
