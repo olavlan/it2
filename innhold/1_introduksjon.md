@@ -18,7 +18,7 @@ Her gir vi datamaskinen en rekke kommandoer som skal utføres i sekvens. Det er 
 
 <img src="programmeringsparadigmer.svg" width="60%">
 
-De ulike måtene kalles gjerne *programmeringsparadigmer*. Ulike språk benytter seg av ulike paradigmer, eller en kombinasjon. Java er et typisk objektorientert programmeringsspråk, mens SQL er et deklarativt språk. Vi skal bruke Python, som befinner seg på venstre side av diagrammet, men som ellers er allsidig. Med Python gir vi altså konkrete kommandoer til datamaskinen, men vi har stor frihet til å benytte oss av ulike paradigmer innen denne grenen. 
+De ulike måtene kalles gjerne *programmeringsparadigmer*. Ulike språk benytter seg av ulike paradigmer, eller en kombinasjon. Java er et typisk imperativt (og objektorientert) programmeringsspråk, mens SQL er et deklarativt språk. Vi skal bruke Python, som befinner seg på venstre side av diagrammet, men som ellers er allsidig. Med Python gir vi altså konkrete kommandoer til datamaskinen, men vi har stor frihet til å benytte oss av ulike paradigmer innen denne grenen. 
 
 Målet er at du skal utvide din vektøykasse med nye måter å programme på, og ta i bruk paradigmer som er egnet for problemstillingene du møter. I dette kapittelet skal vi beskrive når og hvorfor objekorientert programmering er nyttig. Vi ser først på et paradigme du antagelig har brukt allerede.
 
@@ -37,7 +37,7 @@ Vi har nå tatt i bruk prosedyrisk programmering! Det handler rett og slett om �
 
 Med prosedyrisk programmering ønsker vi å separere funksjoner og data, slik at funksjonene kan ta imot data fra svært ulike kilder. Matematiske funksjoner er nettopp slik - ikke begrenset til et spesifikt formål, men nyttige i mange ulike situasjoner. For eksempel er avstandsfunksjonen like aktuell for behandling av kartdata som for sykdomsdiagnostisering (punktene kan være datapunkter som representerer celleprøver). 
 
-## Det objektorienterte paradigmet 
+## Det objektorienterte paradigmet
 
 Når vi bruker programmering for matematiske beregninger, lager vi en slags utvidet kalkulator. Men: 
 
@@ -82,7 +82,7 @@ class Person:
     def skriv_hilsen()
         return "Hei, " + self.navn + "!" + "Takk for meldingen du sendte meg den " + self.dato_for_siste_melding + ". Håper du har det bra! Hilsen meg."
 ```
-Merk at vi ikke gir verdier til variablene. Det er fordi `Person`-klassen ikke definerer en spesifikk person, men gir en oppskrift på hva en person er. Vi kan bruke denne oppskriften til å definere spesifikke personer:
+Merk at vi ikke gir verdier til variablene. Det er fordi klassen `Person` ikke definerer en spesifikk person, men er en mal som forteller hva en person skal inneholde av data og funksjoner. Vi kan bruke denne malen til å definere en spesifikk person:
 
 ```py
 person1 = Person()
@@ -94,7 +94,7 @@ Her oppretter vi altså et `Person`-objekt (som får en spesifikk plass i datama
 ```py
 person1.skriv_melding()
 ```
-Siden funksjonen brukes på et spesifikt `Person`-objekt, og objektet inneholder alle data om personen, trenger vi ingen parametre! Nå blir det enkelt å endre funksjonen. Kanskje ønsker vi å bruke bursdagen til hver person, for å gjøre meldingen enda mer personlig. Da endrer vi først `Person`-klassen, altså oppskriften på en person:
+Siden funksjonen brukes på et spesifikt `Person`-objekt, og objektet inneholder alle data om personen, trenger vi ingen parametre! Nå blir det enkelt å endre funksjonen. Kanskje ønsker vi å bruke bursdagen til hver person, for å gjøre meldingen enda mer personlig. Da endrer vi først `Person`-klassen, altså malen på en person:
 
 ```py
 class Person:
@@ -105,7 +105,7 @@ class Person:
     def skriv_hilsen():
         return "Hei, " + self.navn + "!" + "Takk for meldingen du sendte meg den " + self.dato_for_siste_melding + ". Håper du har det bra, og til lykke med dagen den" + self.bursdag + "!" + " Hilsen meg."
 ```
-Vi lager nå et nytt `Person`-objekt fra denne oppskriften:
+Vi lager nå et nytt `Person`-objekt fra denne malen:
 
 ```py
 person2 = Person()
@@ -116,6 +116,8 @@ person2.skriv_melding()
 ```
 Disse linjene er lett å lese, og trenger aldri å endres senere. Selv i et lite program ser vi altså nytteverdien av å knytte sammen data og funksjoner. Det er viktig 
 å tenke på hvorfor vi gjør dette valget - vi har funksjoner som kun skal brukes på spesifikk data, altså data om personer. 
+
+*I kodeeksempelet over setter vi inn data i objektet på en måte som ikke er vanlig i de fleste objektorienterte språk. Senere skal vi se at dataene i et objekt bør være beskyttet, ved at man kun har tilgang til dem gjennom spesifikke funksjoner.*
 
 ## Oppsummering
 

@@ -6,26 +6,28 @@ I forrige kapittel begynte vi å planlegge et ønsket boksystem. Bøker og perso
 
 <img src="modell_eksempeldata.svg" width="70%">
 
-Merk at vi fyller inn verdier på samme måte i alle bøker. Dette gjør det lett å se at objektene er av samme type. Hadde vi skrevet sideantallet på en bok, men antall kapitler på en annen bok, ville informasjonen kunne oppfattes som ustrukturert. Vi gjør det strukturert ved å ta utgangspunkt i en *oppskrift*: 
+Merk at vi fyller inn verdier på samme måte i alle bøker. Dette gjør det lett å se at objektene er av samme type. Hadde vi skrevet sideantallet på en bok, men antall kapitler på en annen bok, ville informasjonen kunne oppfattes som ustrukturert. Vi gjør det strukturert ved å ta utgangspunkt i en *mal*: 
 
 <img src="objekt_fra_oppskrift.svg" width="100%">
 
-De hvite, rette boksene er oppskrifter som vi bruker til å opprette objekter. Når vi oppretter en bok, skal altså tittel, forfatter og sideantall fylles inn. Når vi oppretter en person, skal navn og alder fylles inn. For å skille mellom oppskrifter og objekter, bruker vi følgende begreper: 
+De hvite, rette boksene er maler som vi bruker til å opprette objekter. Når vi oppretter en bok, skal altså tittel, forfatter og sideantall fylles inn. Når vi oppretter en person, skal navn og alder fylles inn. For å skille mellom maler og objekter, bruker vi følgende begreper: 
 
-* I oppskriften har vi *datafelter*. De forteller hvilke egenskaper som skal fylles ut når objekter opprettes. "tittel" er et datafelt. 
+* I malen har vi *datafelter*. De forteller hva som skal fylles ut når objekter opprettes. "tittel" er et datafelt. 
 * I objektene fyller vi inn *verdier* på de ulike datafeltene. Det første bokobjektet har verdien "Sofies verden" på datafeltet "tittel". 
+
+Når vi snakker om objekter generelt, bruker vi altså begrepet datafelter, og når vi snakker om et spesifikt objekt, bruker vi begrepet verdier. 
 
 ## Klasser
 
-Vi fokuserer nå på oppskriftene for bøker og personer: 
+Vi fokuserer nå på malene for bøker og personer: 
 
 <img src="oppskrift.svg" width="40%">
 
-Når vi bruker oppskriftene får vi objekter med visse egenskaper. Men som nevnt i forrige kapittel skal objektene ikke bare ha egenskaper, men også handlinger. For eksempel skal bøker kunne lånes ut og leveres inn. Derfor legger vi til handlinger i oppskriftene: 
+Når vi bruker malene får vi objekter med visse datafelter. Men som nevnt i forrige kapittel skal objektene ikke bare ha datafelter, men også handlinger. For eksempel skal bøker kunne lånes ut og leveres inn. Derfor legger vi til handlinger i malene: 
 
 <img src="klasse.svg" width="40%">
 
-Her skriver vi handlingene som funksjoner, for å vise at det nettopp er funksjoner vi skal programmere. Mer om det senere - nå skal vi se hva som skjer når vi oppretter objekter fra oppskriftene: 
+Her skriver vi handlingene som funksjoner, for å vise at det nettopp er funksjoner vi skal programmere. Mer om det senere - nå skal vi se hva som skjer når vi oppretter objekter fra malene: 
 
 <img src="objekt_fra_klasse.svg" width="80%">
 
@@ -33,7 +35,7 @@ Vi ser at hvert objekt får en kopi av handlingene. Grunnen til det er at når v
 
 <img src="objekter_metodekall.svg" width="70%">
 
-Nå som vi har inkludert både egenskaper og handlinger i oppskriftene, har vi klasser! En klasse er nemlig akkurat det - en oppskrift på objekter av samme type, der vi tar med både egenskaper og handlinger. Vi skal senere se hvordan man programmerer en klasse, men vi bør alltid skissere klassene i et diagram først. I et slikt diagram bør hver klasse ha et navn med stor forbokstav: 
+Nå som vi har inkludert både datafelter og handlinger i malene, har vi klasser! En klasse er nemlig akkurat det - en mal på objekter av samme type, der vi tar med både datafelter og handlinger. Vi skal senere se hvordan man programmerer en klasse, men vi bør alltid skissere klassene i et diagram først. I et slikt diagram bør hver klasse ha et navn med stor forbokstav: 
 
 <img src="klasser_med_navn.svg" width="40%">
 
@@ -47,13 +49,13 @@ I planleggingen av bokprogrammet kom vi fram til følgende modell av objektene:
 
 <img src="modell_boksamling.svg" width="70%">
 
-Hvilke klasser kommer disse objektene fra? For eksempel har vi to bokhylleobjekter, og i forrige kapittel kom vi fram til relevante egenskaper og handlinger for bokhyller. Dette kan vi bruke til å lage en klasse: 
+Hvilke klasser kommer disse objektene fra? For eksempel har vi to bokhylleobjekter, og i forrige kapittel kom vi fram til relevante datafelter og handlinger for bokhyller. Dette kan vi bruke til å lage en klasse: 
 
 <img src="klasse_bokhylle.svg" width="15%">
 
 Legg merke til  at handlingene nå har en parameter. Det er fordi vi må vite hvilken bok som eventuelt skal legges til eller fjernes fra hylla. 
 
-Vi kan gjenta denne prosessen og lage et fullstendig klassediagram for boksystemet, med egenskaper, handlinger og parametre: 
+Vi kan gjenta denne prosessen og lage et fullstendig klassediagram for boksystemet, med datafelter, handlinger og parametre: 
 
 <img src="klasse_alle.svg" width="100%">
 
@@ -65,15 +67,13 @@ I diagrammet har vi forsøkt å plassere handlingene i klassene de hører hjemme
 
 	Noen ganger har vi ikke et klart svar på spørsmålet over. For eksempel, når vi legger en bok i en bokhylle, gjør vi da en handling med boka eller bokhylla? Begge deler! Så hvorfor plasserte vi handlingen i Bokhylle-klassen? Vi kan stille et annet nyttig spørsmål hvis vi er i tvil:
 
-2. Hvilke egenskaper bør vi ha tilgang til når vi gjør handlinger? Når vi legger en bok i en bokhylle, er vi kanskje mest interessert i egenskaper ved hylla, for eksempel om den har  ledig plass, hvilken seksjon av hylla boka kan legges, og så videre.
-
-Det kan være nyttig å tenke over antall parametre handlingene trenger. Generelt ønsker vi færrest mulig parametre. Lange parameterlister kan være et tegn på at en handling bør flyttes til en annen klasse, eller at vi til og med bør lage en ny klasse.  
+2. Hvilke datafelter bør vi ha tilgang til når vi gjør handlinger? Når vi legger en bok i en bokhylle, er vi kanskje mest interessert i egenskaper ved hylla, for eksempel om den har  ledig plass, hvilken seksjon av hylla boka kan legges, og så videre.
 
 ## Oppsummering
 
-* En klasse er en oppskrift for å lage objekter av samme type. I klassen sier vi hvilke egenskaper og handlinger objektene skal ha når de opprettes. 
-* En klasse har datafelter, og objekter fyller inn disse med verdier. 
-* Et UML-klassediagram er en standardisert måte å skissere klasser.
+* En klasse er en mal for å lage objekter av samme type. I klassen sier vi hvilke datafelter og handlinger objektene skal ha når de opprettes. 
+* Når objekter opprettes, fylles datafeltene med verdier.  
+* UML er en standardisert måte for hvordan vi tegner klasser.
 
 ## Oppgaver
 

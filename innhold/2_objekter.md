@@ -68,7 +68,7 @@ Hvis vi legger til dette objektet, får vi følgende diagram (det oransje objekt
 
 Som vist i diagrammet, kan en boksamling godt inneholde flere bokhyller. 
 
-## Oppsumering 
+## Oppsumering
 
 * En kravspesifikasjon er en beskrivelse av ønskede funksjoner til et program.
 * Fra en kravspesifikasjon kan vi lage en modell av de relevante objektene, og vise relasjoner mellom dem. 
