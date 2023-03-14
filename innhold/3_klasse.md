@@ -53,13 +53,13 @@ Hvilke klasser kommer disse objektene fra? For eksempel har vi to bokhylleobjekt
 
 <img src="klasse_bokhylle.svg" width="15%">
 
-Legg merke til  at handlingene nå har en parameter - på disse handlingene må vi vite hvilken bok som skal legges til eller fjernes fra hylla. 
+Legg merke til  at handlingene må ha en parameter, fordi vi må vite hvilken bok som skal legges til eller fjernes. 
 
-Vi kan gjenta denne prosessen for de andre objektene, og tegne alle klassene for bokprogrammet i et felles diagram: 
+Vi kan gjenta denne prosessen for de andre objektene, og tegne alle klassene i et felles diagram:
 
 <img src="klasse_alle.svg" width="100%">
 
-Vi kan nå opprette objekter fra fem forskjellige klasser. Antagelig kommer vi bare å opprette ett Boksamling-objekt, mens fra de andre klassene kommer vi til å opprette mange objekter. 
+Vi kan nå opprette objekter fra fem forskjellige klasser. Som vist i objektmodellen kommer vi antagelig bare til å opprette ett Boksamling-objekt, mens fra de andre klassene kommer vi til å opprette mange objekter. 
 
 ## Oppsummering
 
@@ -73,6 +73,6 @@ Vi kan nå opprette objekter fra fem forskjellige klasser. Antagelig kommer vi b
 
 **Oppgave B.** Ta utgangspunkt i oppgave B fra forrige kapittel og tegn klassediagram (som i oppgaven over).
 
-## Løsningsforslag.
+## Løsningsforslag
 
 Kommer.

@@ -91,7 +91,7 @@ person1 = Person()
 person1.navn = "Geir" 
 person1.dato_for_siste_melding = "2. februar"
 ```
-Her oppretter vi altså et `Person`-objekt (som får en spesifikk plass i datamaskinens minne) og setter inn data til objektet. Hvis du har brukt Python, så har du opprettet mange objekter - alt er nemlig objekter i Python!  Så når du skriver `mitt_tall=-4`, så opprettes egentlig et `int`-objekt, og verdien -4 settes inn i objektet. Deretter kan du gjøre `int`-operasjoner på objektet, for eksempel skrive `mitt_tall.abs()` for å finne absoluttverdien til tallet. På samme måte kan vi gjøre `Person`-operasjoner på `Person`-objektet vårt. Vi har foreløpig bare en slik operasjon:
+Her oppretter vi altså et `Person`-objekt (som får en spesifikk plass i datamaskinens minne) og setter inn data til objektet. Hvis du har brukt Python, så har du opprettet mange objekter - alt er nemlig objekter i Python!  Når du skriver `mitt_tall=-4`, så opprettes egentlig et `int`-objekt, og verdien -4 settes inn i objektet. Deretter kan du gjøre `int`-operasjoner på objektet, for eksempel skrive `mitt_tall.abs()` for å finne absoluttverdien til tallet. På samme måte kan vi gjøre `Person`-operasjoner på `Person`-objektet vårt. Vi har foreløpig bare en slik operasjon:
 
 ```py
 person1.skriv_melding()

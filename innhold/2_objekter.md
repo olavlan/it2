@@ -59,7 +59,7 @@ Koblingene viser at et utlån knyttes til en person og en bok.
 
 Har vi nå inkludert alle relevante objekter? For å svare på det, bør vi gå tilbake til kravspesifikasjonen, og sjekke om vi mangler noen handlinger. Vi ønsket jo for eksempel å søke etter ledige bøker. Hvilket objekt gjøres denne handlingen på? På hele boksamlingen! Dette er et relevant objekt: 
 
-- En boksamling har en egenskap, nemlig hvilke bokhyller og bøker den inneholder. 
+- En boksamling har egenskaper, nemlig hvilke bokhyller og bøker den inneholder. 
 - En boksamling har handlinger, for eksempel “Søk etter ledig bok” eller “Vis ledige bøker”. 
 
 Hvis vi legger til dette objektet, får vi følgende diagram (det oransje objektet er en boksamling): 
