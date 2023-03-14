@@ -10,9 +10,9 @@ Dette er maler som vi bruker til å opprette objekter. Tenk deg at vi vil regist
 
 `Bok("Sofies verden")` 
 
-Først sier vi hvilken klasse objektet kommer fra, deretter skriver vi verdien til de viktigste datafeltene i parenteser. 
+Først sier vi hvilken klasse objektet kommer fra, deretter skriver vi verdien til de viktigste datafeltene i parenteser (vi kunne også skrevet `Bok("Sofies verden", "Jostein Gaarder")` for å unngå sammenblanding av bøker med samme titel). 
 
-To andre `Bok`-objekter er 
+To andre `Bok`-objekter er:
 
 `Bok("Beatles")`    
 `Bok("Når villdyret våkner")`   
@@ -43,7 +43,9 @@ Vi kan be et objekt om å utføre en av sine metoder. Det kalles å *sende en me
 
 ## Datatyper
 
-Når vi skriver tekststrengen`"Sofies verden"` i Python, så opprettes et objekt fra klassen `str`.  Dette er en innebygd klasse i Python - den har datafelter og metoder, akkurat som klassene vi lager selv. *(Vi kan for eksempel be objektet `"Sofies verden"` om å utføre metoden `capitalize()` for å endre tekststrengen til `"SOFIES VERDEN"`. Hvis du er interessert i hvilke andre metoder `str`-klassen har, så kan du se [her](https://docs.python.org/3/library/stdtypes.html#string-methods))*. 
+Når vi skriver tekststrengen`"Sofies verden"` i Python, så opprettes et objekt fra klassen `str`.  Dette er en innebygd klasse i Python - den har datafelter og metoder, akkurat som klassene vi lager selv. 
+
+*Vi kan for eksempel be objektet `"Sofies verden"` om å utføre metoden `capitalize()` for å endre tekststrengen til `"SOFIES VERDEN"`. Hvis du er interessert i hvilke andre metoder `str`-klassen har, så kan du se [her](https://docs.python.org/3/library/stdtypes.html#string-methods)*. 
 
 Tilsvarende, når vi skriver tallet `512` i Python, så opprettes et objekt fra klassen `int`. 
 
@@ -61,7 +63,7 @@ Datafeltene  må selvfølgelig ikke ha datatypen `str` eller `int` - du kan bruk
 
 <img src="klasse_bok_utlaan.svg" width="15%">
 
-Dette datafeltet har altså datatypen `Utlån`.  Det betyr at når et lån registreres, skal `aktivt_utlån` fylles med et `Utlån`-objekt, der vi finner informasjon om utlånet, slik som lånetaker, startdato og leveringsfrist. 
+Dette datafeltet har altså datatypen `Utlån`.  Det betyr at når et utlån registreres, skal `aktivt_utlån` fylles med et `Utlån`-objekt, der vi finner informasjon om utlånet, slik som lånetaker, startdato og leveringsfrist. 
 
 I tillegg ønsker vi  å lagre lånehistorikken til en bok. Da kan vi legge til et datafelt som heter `lånehistorikk`: 
 
@@ -76,7 +78,7 @@ Hva er datatypen til disse listene? Når vi oppretter en liste i `Python`, bruke
 
 `[Bok("Beatles"), Bok("Når villdyret våkner")]`
 
-Målet vårt var at datafeltet `lånehistorikk` skal lagre tidligere utlån. Nå vet vi hvilken datatype vi trenger, nemlig `list[Utlån]`! Vi kan legge til dette i klassediagrammet:  
+Vi ønsker altså at datafeltet `lånehistorikk` skal lagre tidligere utlån. Nå vet vi hvilken datatype vi trenger, nemlig `list[Utlån]`! Vi kan legge til dette i klassediagrammet:  
 
 <img src="klasse_bok_utlaanshistorikk2.svg" width="15%">
 
@@ -84,7 +86,7 @@ Vi kan også vise datatypen til parametre og returverdier:
 
 <img src="klasse_bok_datatyper.svg" width="15%">
 
-Her sier vi at parameteren `person` skal ha datatypen `Person`, og at returverdien skal være  `bool`. Altså er returverdien enten `True` eller `False`, som i dette tilfellet kan fortelle om utlånet/innleveringen ble godkjent eller ikke. 
+Her sier vi at parameteren `person` skal ha datatypen `Person`, og at returverdien skal ha datatypen  `bool`. Altså er returverdien enten `True` eller `False` (dette kan fortelle om utlånet/innleveringen ble godkjent eller ikke). 
 
 ## Objektdiagram og pekere
 
@@ -95,7 +97,7 @@ Vi skal nå vise en alternativ måte å visualisere objekter. Som eksempel lager
 Den nederste delen av figuren kalles et objektdiagram, og er tegnet på følgende måte: 
 
 - Det første objektet har overskriften `bok1: Bok`. Dette betyr at variabelen med navn `bok1` holder på objektet, og at datatypen til objektet er `Bok`. Det er lov å bare oppgi datatypen, som vist i det andre objektet. 
-	+ Når et program kjøres, kan variabelen `bok1` holde på `Bok("Sofies verden")` på et tidspunkt, men senere holde på et helt annet objekt. Objektdiagrammet viser altså hva variablene inneholder på et *spesifikt tidspunkt* under kjøringen av programmet. 
+	+ Når et program kjøres, kan variabelen `bok1` holde på `Bok("Sofies verden")` på et tidspunkt, men senere holde på et helt annet objekt. Diagrammet viser altså hva variablene inneholder på et *spesifikt tidspunkt* under kjøringen av programmet. 
 - Vi tegner bokser for objektets verdier. Det første objektet har verdien `"Sofies verden"` på datafeltet `tittel`. Det er lov for et objekt å mangle noen verdier, og dette vises med en tom boks. 
 
 Tenk deg at Per Hansen nettopp har lånt boka *Sofies verden*. Hvordan registrerer vi dette i systemet? Det er tre ting vi ønsker å gjøre: 
@@ -104,9 +106,9 @@ Tenk deg at Per Hansen nettopp har lånt boka *Sofies verden*. Hvordan registrer
 2. Registrere utlånet i objektet `Person("Per Hansen")`. 
 3. Registrere utlånet i objektet `Bok("Sofies verden")` 
 
-I diagrammet ovenfor har vi gjennomført det første steget, nemlig å opprette et `Utlån`-objekt, men foreløpig har objektet ingen verdier. Hvilken verdi skal fylles inn på datafeltet `bok`? For å spørre på en annen måte, hva ønsker du å få tilbake når du henter denne verdien senere  ? Det hadde ikke vært så nyttig å bare få tittelen `"Sofies verden"`! Det du antagelig ønsker å få tilbake er objektet `Bok("Sofies verden")` (til venstre i diagrammet). Hvordan får vi tak i dette objektet?
+I diagrammet ovenfor har vi gjennomført det første steget, nemlig å opprette et `Utlån`-objekt, men foreløpig har objektet ingen verdier. Hvilken verdi skal fylles inn på datafeltet `bok`? For å spørre på en annen måte, hva ønsker du å få tilbake når du henter denne verdien senere? Det hadde ikke vært så nyttig å bare få tittelen `"Sofies verden"`! Det du antagelig ønsker å få tilbake er objektet `Bok("Sofies verden")` (til venstre i diagrammet). Hvordan får vi tak i dette objektet?
 
-Et sted i datamaskinens minne ligger objektet `Bok("Sofies verden")`. For å kunne gjøre operasjoner på objektet, må vi fortelle datamaskinen hvor i minnet det ligger.  Hver gang vi oppretter et objekt, får vi tildelt en *minneadresse*, som gjør at vi kan finne igjen obkjektet senere. Vi trenger selvfølgelig ikke å huske denne adressen når vi koder. Faktisk er det slik at når vi legger objektet i en variabel, så er det minneadressen som lagres i variabelen! Hensikten med variabler er altså å ta vare på minneadresser for oss, slik at vi kan finne igjen objektene som vi ønsker å gjøre operasjoner på!
+Et sted i datamaskinens minne ligger objektet `Bok("Sofies verden")`. For å kunne gjøre operasjoner på objektet, må vi fortelle datamaskinen hvor i minnet det ligger.  Hver gang vi oppretter et objekt, får vi tildelt en *minneadresse*, som gjør at vi kan finne igjen obkjektet senere. Vi trenger selvfølgelig ikke å huske denne adressen når vi koder - faktisk er det slik at når vi legger objektet i en variabel, så er det minneadressen som lagres i variabelen! Hensikten med variabler er altså å ta vare på minneadresser for oss, slik at vi kan finne igjen objektene som vi skal gjøre operasjoner på!
  
 Spørsmålet var altså hva vi skal sette inn i datafeltet `bok` på `Utlån`-objektet. Nå vet vi svaret - vi skal sette inn minneadressen til objektet `Bok("Sofies verden")`. Dette vises med en pil: 
 
@@ -121,7 +123,7 @@ Kan du se hvilken peker som mangler i diagrammet ovenfor?
 ## Oppdeling av metoder
 
 Vi bør navnsette metoder slik at det er lett å skjønne hva de gjør. For å registrere at en bok leveres inn, er altså `lever_inn()` et fornuftig valg av navn:
-* Navnet starter med et verb som gjør det klart hva som er handlingen. 
+* Navnet starter med et verb som beskriver handlingen. 
 * Det er unødvendig å bruke navnet`lever_inn_bok()`, fordi metoden er i `Bok`-klassen, så vi vet allerede at den bare brukes på `Bok`-objekter.  
 
 Et viktig prinsipp er at **en metode bør kun ha én oppgave**. Dette må vi tenke på når vi skal legge til ny funksjonalitet i bokprogrammet vårt. Kanskje det skal være mulig å skrive en anmeldelse samtidig som man leverer en bok? Da bør vi dele opp denne prosessen i to metoder: 
@@ -129,13 +131,13 @@ Et viktig prinsipp er at **en metode bør kun ha én oppgave**. Dette må vi ten
 - `lever_inn()` for å levere boka.
 - `legg_til_anmeldelse(person, tekst)` for å legge til en anmeldelse av boka.
 
-Det er kanskje fristende å legge begge handlingene i en metode, for det er jo bare lånetakeren som skal kunne skrive en anmeldelse av boka? Men dette problemet bør vi løse på en annen måte, for eksempel med en betingelse (`if`-setning) i den andre metoen. Det viktigste er å følge prinsippet om én oppgave per metode. 
+Det er kanskje fristende å legge begge handlingene i en metode, for det er jo bare lånetakeren som skal kunne skrive en anmeldelse av boka? Men dette problemet bør vi løse på en annen måte, for eksempel med en betingelse (`if`-setning) i anmeldelse-metoden. Det viktigste er å følge prinsippet om én oppgave per metode. 
 
 For å se på et mer interessant eksempel, skal vi begynne å tenke på hvordan vi kan rangere bøker. Vi legger til et datafelt og metode i klassediagrammet, markert i grønt: 
 
 <img src="klasse_bok_vurdering.svg" width="30%">
 
-Metoden `regn_ut_gjennomsnittsvurdering()` skal gi boka en poengsum basert på anmeldelser fra ulike kilder. Merk at navnet inneholder nøyaktig ett verb, som er et godt tegn på at vi følger prinsippet om én oppgave. Men hva om metoden trenger flere steg for å komme fram til svaret? For eksempel kan den gjøre følgende steg:
+Metoden `regn_ut_gjennomsnittsvurdering()` skal gi boka en poengsum basert på anmeldelser fra ulike kilder. Merk at navnet inneholder kun ett verb, som er et godt tegn på at vi følger prinsippet om én oppgave. Men hva om metoden trenger flere steg for å komme fram til svaret? For eksempel kan den gjøre følgende steg:
 
 1. Regne ut gjennomsnittet av lånetakernes vurderinger.
 2. Regne ut gjennomsnittet av brukervurderinger på nett, fra sider som [*Bokelskere*](https://bokelskere.no/) og [*Goodreads*](https://www.goodreads.com/). 
@@ -154,10 +156,10 @@ Vi legger til disse metodene i klassediagrammet:
 
 Metodene vi har lagt til kalles gjerne *delmetoder*, fordi de utfører delprosesser, og sørger for at`regn_ut_gjennomsnittsvurdering()` kun tar seg av selve utregningen. Fordelen med denne oppdelingen er at det blir enklere å modifisere og utvide programmet senere:
 
-- Koden blir lettere å lese. Uten delmetoder ville koden til `regn_ut_gjennomsnittsvurdering()` antagelig blitt svært lang og vanskelig å få oversikt over. Ved å bruke delmetoder med gode navn, skjønner man på kort tid hvilke fire hovedsteg som utføres. Lesbar kode er svært viktig, spesielt dersom vi ønsker å jobbe videre med programmet senere. 
-- Når vi skal gjøre en endring i et stort program, kan det være vanskelig å finne den riktige kodelinjen. Men når vi har fulgt prinsippet om én oppgave, så trenger vi bare å finne metoden som har den relevante oppgaven. Eksempler på endringer vi kan ønske å gjøre er: 
-	- Vi kommer fram til at brukeranmeldelser på nett bør telle mest, og ønsker derfor å endre vektingen av de ulike kildene. Dette er en endring av utregningen, og det er `regn_ut_gjennomsnittsvurdering()` som har denne oppdaven. 
-	- Vi ønsker å inkludere anmeldelser fra flere nettsider. Denne oppgaven ligger hos metoden `hent_brukeranmeldelser_på_nett()`. 
+- Koden blir lettere å lese. Uten delmetoder ville koden til `regn_ut_gjennomsnittsvurdering()` antagelig blitt svært lang og vanskelig å få oversikt over. Ved å bruke delmetoder med gode navn, skjønner man på kort tid hvilke fire hovedsteg som utføres. Lesbar kode er svært viktig dersom vi ønsker å jobbe videre med programmet senere, og enda viktigere dersom vi ønsker at andre skal kunne utvide eller benytte deler av programmet. 
+- Når vi skal gjøre en endring i et program, bør det alltid være lett å finne de riktige kodelinjene! Dersom vi har metoder som utfører mange forskjellige oppgaver, kan det til slutt bli umulig å vite hvilke kodelinjer vi må endre for å oppnå en bestemt funksjonalitet. Men ved å følge prinsippet om én oppgave, vet vi alltid hvilke metoder vi skal gå til. Tenk deg for eksempel at du ønsker å gjøre følgende endringer:
+	- Du kommer fram til at brukeranmeldelser på nett bør telle mest, og ønsker derfor å endre vektingen av de ulike kildene. Dette er en endring av utregningen, og det er `regn_ut_gjennomsnittsvurdering()` som har denne oppdaven. 
+	- Du ønsker å inkludere anmeldelser fra flere nettsider. Denne oppgaven ligger hos metoden `hent_brukeranmeldelser_på_nett()`. 
 - Vi kan gjenbruke delmetodene til andre formål. For eksempel, å hente en oppdatert liste med nettanmeldelser kan være nyttig i andre deler av boksystemet vårt. Senere ønsker vi kanskje å presentere anmeldelsene, eller søke etter stikkord i anmeldelsene for å gi bedre bokanbefalinger. 
 
 ## Flytdiagram
@@ -166,7 +168,7 @@ Metoden `regn_ut_gjennomsnittsvurdering()` fra forrige seksjon utfører flere st
 
 <img src="flytdiagram_bokvurdering.svg" width="100%">
 
-Dette ser kanskje komplisert ut, men det er ikke mye man må vite for å forstå et slikt diagram. Vi begynner med å forklare de ulike blokkene:
+Dette ser kanskje komplisert ut, men man trenger ikke å vite mye for å forstå et slikt diagram. Vi begynner med å forklare de ulike blokkene:
 
 1. I den grønne delen finner vi gjennomsnittet av lånetakernes vurderinger.
 2. I den blå delen finner vi gjennomsnittet av brukervurderinger på nett.
@@ -175,7 +177,7 @@ Dette ser kanskje komplisert ut, men det er ikke mye man må vite for å forstå
 
 Slik fargelegging er ikke nødvendig, men gjør det lettere å forstå helheten. Merk også hvordan vi kan plassere boksene slik at diagrammet blir mer oversiktlig.  
 
-I vårt eksempel har vi fire typer bokser. Det finnes flere typer, men disse er viktigst: 
+I vårt eksempel har vi fire typer bokser: 
 
 - **Sirkel/ellipse** markerer start og slutt på metoden.
 - **Rektangel** er en operasjon, for eksempel en metode.
@@ -203,7 +205,7 @@ For at dette skal fungere, må `Bok`-objektene tilby metoden `regn_ut_gjennomsni
 * Alle objekter kan be om at `Bok`-objektet utfører en av sine offentlige metoder.
 * Ingen andre objekter kan be om at `Bok`-objektet utfører en av sine private metoder, ikke engang andre `Bok`-objekter. En privat metode kan kun brukes som byggeblokk til andre metoder i det samme objektet, altså som en delmetode. 
 
-Vi bruker klassen, det vil si malen på en bok, til å definere hvilke metoder som skal være offentlige og private. Dette gir mening, for det ville jo vært litt rart om en metode var offentlig for boka *Beatles*, men ikke for boka *Sofies verden*. La oss se hvordan vi kan definere at alle metoder skal være private: 
+Vi bruker klassen, det vil si malen på en bok, til å definere hvilke metoder som skal være offentlige og private. La oss se hvordan vi kan definere at alle metoder skal være private: 
 
 <img src="klasse_bok_privat.svg" width="20%">
 
@@ -218,15 +220,15 @@ Vi kan selvfølgelig godta at noen `Bok`-objekter ikke klarer å finne anmeldels
 * Hvis svaret er et tall mellom 0 og 10, så har `Bok`-objektet funnet anmeldelser og regnet ut en vurdering. 
 * Hvis svaret er -1, betyr det at `Bok`-objektet ikke har funnet noen anmeldelser. 
  
-En slik løsning kan vi være fornøyde med. Uansett hvor dårlig `Bok`-objektene er til å finne anmeldelser, så blir vi i hvert fall aldri overrasket. Vi vet hvilke svar vi kan få, og hvordan de skal tolkes. Men hvis `Bok`-objektene på et senere tidspunkt slutter å gi svar eller gir feil svar, så har vi grunn til å være skuffet! Da vil hele rangeringsfunksjonen vår slutte å fungere. 
+En slik løsning kan vi være fornøyde med. Uansett hvor dårlig `Bok`-objektene er til å finne anmeldelser, så blir vi i hvert fall aldri overrasket - vi vet hvilke svar vi kan få, og hvordan de skal tolkes. Men hvis `Bok`-objektene på et senere tidspunkt slutter å gi svar eller gir feil svar, så har vi grunn til å være skuffet! Da vil hele rangeringsfunksjonen vår slutte å fungere. 
 
 Hva kan vi lære av dette tankeeksperimentet? Når vi tilbyr en metode til andre objekter, må vi forplikte oss til følgende: 
 
 * At vi aldri endrer navnet eller parameterne til metoden. 
-* At metoden gir et svar i alle tilfeller, selv når den ikke fungerer slik vi ønsker. Vi bør gi en god beskrivelse av hva de ulike svarene betyr.
-* At metoden for all framtid gir et av de forventede svarene. 
+* At metoden gir svar i alle tilfeller, selv når den ikke fungerer slik vi ønsker. Vi bør gi en god beskrivelse av hva de ulike svarene betyr.
+* At metoden for all fremtid gir et av de forventede svarene. 
 
-Hvis vi bryter ett av disse punktene, kan vi ødelegge kommunikasjonen mellom mange objekter! Som en generell regel bør vi starte med å gjøre alle metoder private, og først når det oppstår behov for å tilby en metode, kan vi gjøre den offentlig. Da må vi huske å følge kravene listet ovenfor, som kort sagt sier at en offentlig metode må være stabil for all framtid. 
+Hvis vi bryter ett av disse punktene, kan vi ødelegge kommunikasjonen mellom mange objekter! Som en generell regel bør vi starte med å gjøre alle metoder private, og først når det oppstår behov for å tilby en metode, kan vi gjøre den offentlig. Da må vi huske å følge kravene listet ovenfor, som kort sagt sier at en offentlig metode må være stabil for all fremtid. 
 
 *Grensesnittet* til et objekt er listen av datafeltene og metodene som er offentlige. Altså er grensesnittet til `Bok`-objekter følgende: 
 
@@ -254,7 +256,7 @@ Hvordan legger vi til en konstruktør i klassen? Vi definerer en metode med samm
 
 <img src="konstruktor1.svg" width="70%">
 
-En konstruktør uten kode vil bare opprette et tomt objekt. Hvis vi ønsker gjøre operasjoner på det nyopprettede objektet, må vi skrive kode i konstruktøren, akkurat som vi gjør i andre metoder. I eksempelet over gjør konstruktøren følgende operasjon med det nye objektet: 
+En konstruktør uten kode vil bare opprette et tomt objekt. Hvis vi ønsker gjøre operasjoner på det nyopprettede objektet, må vi skrive kode i konstruktøren, akkurat som i andre metoder. I eksempelet over gjør konstruktøren følgende operasjon med det nye objektet: 
 
 * Fyller datafeltene `tittel`, `forfatter` og `antall_sider` med verdiene som ble gitt i parametrene. 
 
@@ -275,21 +277,18 @@ I programmeringsspråket Java kunne vi inkludert begge konstruktørene vi har de
 
 Her har vi altså to forskjellige måter å opprette `Bok`-objekter på. Det ser kanskje rart ut å ha to metoder med samme navn, men siden de har forskjellige antall parametre,  regnes de som forskjellige metoder i Java. 
 
-Dette fungerer derimot ikke i Python. Hvis vi definerer to metoder med samme navn, så vil Python regne den siste som den mest oppdaterte versjonen, og den første metoden vil overskrives. Det betyr at vi bare kan ha én konstruktør i Python. Men som vi skal vise i implementasjonsdelen, kan vi sørge for at den ene konstruktøren kan brukes på forskjellige måter, slik at vi oppnår funksjonaliteten som er gitt i klassediagrammet over. 
+Dette fungerer derimot ikke i Python. Hvis vi definerer to metoder med samme navn, så vil Python regne den siste metoden som den mest oppdaterte versjonen, og den første metoden vil overskrives. Det betyr at vi bare kan ha én konstruktør i Python. Men som vi skal vise i implementasjonsdelen, kan vi sørge for at den ene konstruktøren kan brukes på forskjellige måter, slik at vi oppnår funksjonaliteten som er gitt i klassediagrammet over. 
 
 ## Grensesnitt og dokumentasjon
 
 Tenk deg at du har programmert alle klassene i boksystemet, og ett år senere skal du lage en nettside for rangering av bøker. Du husker at du var fornøyd med  `Bok`-klassen, og vil bygge det nye programmet rundt denne klassen.
 
-Du finner igjen`Bok`-klassen i en programfil kalt *Bok.py*, og kopierer denne fila over til den nye prosjektmappa. Hva nå? Du har selvfølgelig glemt all koden, og det vil ta deg lang tid å forstå den. Men for å ta i bruk en klasse trenger du ikke forstå koden, bare å forstå grensesnittet til klassen! Alt vi trenger å vite er hvordan vi skal bruke de offentlig metodene som er relevante for oss. Mer spesifikt bør vi vite: 
+Du finner igjen`Bok`-klassen i en programfil kalt *Bok.py*, og kopierer denne fila over til den nye prosjektmappa. Hva nå? Du har selvfølgelig glemt all koden, og det vil ta deg en god stund å forstå den. Men for å ta i bruk en klasse trenger du ikke forstå koden, bare å forstå grensesnittet til klassen! Alt vi trenger å vite er hvordan vi skal bruke de offentlig metodene som er relevante for oss. Mer spesifikt bør vi vite: 
 
-* *Signaturen* til metoden, det vil si:
-	* Navnet til metoden
-	* Parametrene til metoden 
-* Hva som er resultatet av å utføre metoden, med følgende underpunkter:
-	* Hviken hovedoperasjon som gjøres
-	* Hvordan metoden endrer verdiene til objektet (dersom slike endringer skjer)
-	* Returverdien (dersom metoden har returverdi)
+* *Signaturen* til metoden, det vil si navnet og parametrene til metoden
+* En beskrivelse av handlingen som utføres av metoden
+* En beskrivelse av hver parameter, altså hva slags verdier metoden forventer å motta
+* En beskrivelse av returverdien
 
 En slik beskrivelse av hver metode kalles en *dokumentasjon* av klassen. Når vi programmerer `Bok`-klassen, bør vi altså skrive en slik dokumentasjon, slik at det blir lett å gjenbruke klassen senere. 
 
@@ -303,7 +302,7 @@ Vi skal nå skrive en dokumentasjon for klassen, ved å følge punktene ovenfor.
 
 ____
 
-### `Bok(tittel, forfatter, antall_sider)`
+#### `Bok(tittel, forfatter, antall_sider)`
 
 **Beskrivelse:** Oppretter et nytt `Bok`-objekt fra innskrevne verdier. 
 
@@ -315,7 +314,7 @@ ____
 
 ___
 
-### `Bok(isbn)`
+#### `Bok(isbn)`
 
 **Beskrivelse:** Oppretter et nytt `Bok`-objekt fra ISBN. Informasjon om boka hentes ved å gjøre ISBN-søk i bokdatabaser på nett. Hvis denne informasjonen ikke blir funnet, opprettes et tomt `Bok`-objekt. 
 
@@ -325,7 +324,7 @@ ___
 
 ___
 
-### `lån_ut(person)`
+#### `lån_ut(person)`
 
 **Beskrivelse:** Registrerer utlån av boka hvis den er ledig. 
 
@@ -337,15 +336,15 @@ ___
 
 ___
 
-### `lever_inn()`
+#### `lever_inn()`
 
 **Beskrivelse:** Registrerer innlevering av boka hvis den er utlånt.
 
-**Returverdi (`bool`):**  `True` dersom innleveringen blir godkjent, `False` dersom boka ikke kan leveres inn (fordi det ikke er registrert noe utlån på boka). 
+**Returverdi (`bool`):**  `True` dersom innleveringen blir godkjent, `False` dersom boka ikke kan leveres inn (fordi boka ikke er registrert som utlånt). 
 
 ___
 
-### `regn_ut_gjennomsnittsvurdering()`
+#### `regn_ut_gjennomsnittsvurdering()`
 
 **Beskrivelse:** Returnerer en vurdering av boka, basert på anmeldelser fra følgende kilder: 
 
@@ -355,18 +354,21 @@ ___
 	* Goodreads
 * Litteraturanmeldelser på nett
 
-**Returverdi (float):** Dersom minst én anmeldelse blir funnet, returneres et gjennomsnittsverdi på en skala fra 0 til 10, der 10 er høyeste vurdering. Dersom ingen anmeldelser blir funnet, returneres -1.  
+**Returverdi (float):** 
+
+* Dersom minst én anmeldelse blir funnet, returneres et gjennomsnittsverdi på en skala fra 0 til 10, der 10 er høyeste vurdering. 
+* Dersom ingen anmeldelser blir funnet, returneres -1.  
 
 ____
 
-Nå har vi fullført dokumantasjonen. Merk følgende punkter:
+Nå har vi fullført dokumantasjonen. Vi gjentar at dokumentasjonen må inneholde følgende for hver metode: 
 
-* Dokumentasjonen av hver metode består av fire deler:
-
-	1. Signaturen til metoden
-	2. Beskrivelse av hva metoden gjør
-	3. Parameterliste (dersom metoden har parametre)
-	4. Returverdi (dersom metoden har returverdi)
+1. Signaturen til metoden
+2. Beskrivelse av hva metoden gjør
+3. Parameterliste (dersom metoden har parametre)
+4. Returverdi (dersom metoden har returverdi)
+	
+Merk også følgende detaljer:
 
 * Når vi lister parametre og returverdi, skriver vi også datatypen til disse i parantes. 
 
@@ -375,7 +377,7 @@ Nå har vi fullført dokumantasjonen. Merk følgende punkter:
 
 ## Oppdeling av klasser
 
-Vi har tidligere sett at en metode kun bør ha én oppgave, og at vi kan oppnå dette ved oppdeling av metoder. Det finnes en tilsvarende regel for klasser. Vi kan ikke si at en klasse bare skal ha én oppgave, men at den bør ha ett *ansvar*! Det betyr at `Bok`-klassen bare skal ha ansvar for datafelter og metoder som har å gjøre med en bok. La oss se på følgende klassediagram: 
+Vi har tidligere sett at en metode kun bør ha én oppgave, og at vi kan oppnå dette ved å dele opp metoder. Det finnes en tilsvarende regel for klasser. En klasse kan selvfølgelig ikke bare ha én oppgave, men den bør kun ha **ett ansvar**. Det betyr at `Bok`-klassen bare skal ha ansvar for datafelter og metoder som har å gjøre med en bok. La oss se på følgende klassediagram: 
 
 <img src="klasse_bok_oppdeling1.svg" width="30%">
 
@@ -389,15 +391,15 @@ Vi har igjen markert datafeltene som har med anmeldelser å gjøre. Vi kan trekk
 
 <img src="objektdiagram_bok_oppdeling2.svg" width="100%">
 
-Det nye objektet har altså ansvar for anmeldelsene til boken *Sofies verden*. Begge objektene har altså å gjøre med boka *Sofies verden* - det første objektet håndterer generelle datafelter og metoder knyttet til boka, mens det andre objektet håndterer anmeldelser av boka. Det er viktig å  koble objektene sammen med pekere begge veier, slik at de kan finne hverandre. 
+Det nye objektet har altså ansvar for anmeldelsene til boken *Sofies verden*. Begge objektene har altså å gjøre med boka *Sofies verden* - det første objektet håndterer generelle datafelter og metoder knyttet til boka, mens det andre objektet håndterer anmeldelser av boka. Derfor er det viktig å  koble objektene sammen med pekere begge veier, slik at de kan finne hverandre. 
 
 Du har kanskje merket at det nye objektet har fått datatypen `Bokanmeldelser`. Objektet kommer altså fra en klasse vi ikke har definert enda. Vi definerer den nye klassen ved å ta utgangspunkt i `Bok`-klassen, og trekke ut alt som har med anmeldelser å gjøre: 
 
 <img src="klasse_bok_oppdeling2.svg" width="100%">
 
-Nå ser vi at `Bok`-klassen kun har ett ansvar. Vi har ikke mistet noe funksjonalitet knyttet til anmeldelser, men delegert dette ansvaret til en ny klasse!
+Nå ser vi at `Bok`-klassen kun har ansvar for selve boka. Vi har ikke mistet noe funksjonalitet knyttet til anmeldelser, men delegert dette ansvaret til en ny klasse!
 
-Den nye klassen skiller seg fra andre klasser vi har sett til nå, fordi helt avhengig av den opprinnelige klassen. Det gir nemlig ikke mening å opprette et `Bokanmeldelser`-objekt uten å spesifisere hvilket `Bok`-objekt det tilhører. Vi kan vise denne avhengigheten i klassediagrammet: 
+Den nye klassen `Bokanmeldelser` skiller seg fra andre klasser vi har sett til nå, fordi den er avhengig av den opprinnelige klassen `Bok`. Det gir nemlig ikke mening å opprette et `Bokanmeldelser`-objekt uten å spesifisere hvilket `Bok`-objekt det tilhører. Vi kan vise denne avhengigheten i klassediagrammet: 
 
 <img src="uml_komposisjon.svg" width="60%">
 
@@ -408,7 +410,7 @@ Vi leser dette klassediagrammet på følgende måte:
 For å oppsummere, så har vi delt opp `Bok`-klassen fordi vi ønsker at hver klasse skal ha sitt spesifikke ansvar. Å følge prinsippet om ett ansvar for klasser har de samme fordelene som for metoder, nemlig at det blir lettere å modifisere og utvide programmet. 
 
 - Egenskaper og metoder fordeles over flere klasser på en naturlig måte. Koden blir dermed bedre strukturert og lettere å lese. 
-- Når vi senere vil endre noe som har med innhenting og prosessering av anmeldelser, trenger vi ikke å lete etter den riktige delen av`Bok`-klassen, men kan gå rett til klassen som har det spesifikke ansvaret for anmeldelser. 
+- Når vi senere vil endre noe som har med innhenting og prosessering av anmeldelser, kan vi jobbe med en klasse som har dette spesifikke ansvaret, uten å bli forstyrret av alt annet som har å gjøre med bøker. 
 - Vi kan gjenbruke den nye klassen `Bokanmeldelser` i andre programmer. Hvis vi for eksempel skal lage en nettside som rangerer bøker, så ønsker vi kanskje ikke å bruke hele `Bok`-klassen (vi trenger ikke et system for utlån av bøker), men det er veldig aktuelt å gjenbruke måten vi håndterer bokanmeldelser. 
 
 
@@ -426,4 +428,8 @@ For å oppsummere, så har vi delt opp `Bok`-klassen fordi vi ønsker at hver kl
 
 ## Oppgaver
 
-## Løsninger
+Kommer. 
+
+## Løsningsforslag
+
+Kommer.

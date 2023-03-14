@@ -2,12 +2,12 @@
 
 ## Klasser med felles datafelter og metoder
 
-I de forrige kapitlene skisserte vi et program for en boksamling. Vi skal nå tenke oss at vi også har filmer i samlingen, og at vi skal inkludere dette i programmet. Vi ønsker å kunne låne ut filmene, samt å hente og lagre informasjon om filmene på nett. 
+I de forrige kapitlene planla vi et program for en boksamling. Vi skal nå tenke oss at vi også har filmer i samlingen, og at vi skal inkludere dette i programmet. Vi ønsker å kunne låne ut filmene, samt å hente og lagre informasjon om filmene på nett. 
 
 Filmobjekter bør være med i modellen vår, fordi:
 
-*  Et filmobjekt har relevante datafelter, for eksempel "Tittel", "Diskformat" og datafelter knyttet til lånestatus 
-* Et filmobjekt har relevante metoder, for eksempel "Lån ut", "Lever inn" og "Hent informasjon på nett" 
+*  Et filmobjekt har relevante datafelter, for eksempel "Tittel", "Diskformat" og datafelter knyttet til lånestatus. 
+* Et filmobjekt har relevante metoder, for eksempel "Lån ut", "Lever inn" og "Hent informasjon på nett".
 
 Vi kan nå opprette en `Film`-klasse, det vil si en mal for alle filmobjekter:
 
@@ -28,7 +28,7 @@ Ved å plassere de røde datafeltene og metodene øverst, ser vi enda tydeligere
 * Den øverste delen av objektene viser datafelter og metoder knyttet til utlån. Hvis vi kun ser på denne delen, er det ikke noe forskjell på objektene - de er begge "utlånsobjekter". 
 * Den nederste delen av objektene viser datafelter og metoder som er spesifikke for bøker og filmer, og som gjør at vi trenger to forskjellige klasser. 
 
-Her kan vi benytte oss av *arv*. Måten vi gjør det på er å lage en basisklasse som inneholder de datafeltene og metodene som finnes i begge klassene:
+Her kan vi benytte oss av *arv*. Måten vi gjør det på er å lage en basisklasse som inneholder de datafeltene og metodene som klassene har til felles:
 
 <img src="superklasse2.svg" width="50%">
 
@@ -45,7 +45,7 @@ Nå kan vi opprette `Utlån`-objekter! Det trenger bare å være noe vi ønsker 
 
 <img src="utlaansobjekter.svg" width="40%">
 
-Det er lett å tenke at vi her bør opprette nye klasser med navn "Spill" og "Tegneserie". Men foreløpig ønsker vi ikke å gjøre spesifikke handlinger med spill eller tegneserier. Hvis alt vi ønsker å gjøre med spill og tegneserier er å låne dem ut, så er det best å betrakte dem som utlånsobjekter. 
+Det er lett å tenke at vi her bør opprette nye klasser, for eksempel med navn "Spill" og "Tegneserie". Men foreløpig ønsker vi ikke å gjøre spesifikke handlinger med spill eller tegneserier. Hvis alt vi ønsker å gjøre er å låne dem ut, så er det altså best å betrakte dem som utlånsobjekter. 
 
 På bøker og filmer ønsker vi derimot å gjøre spesifikke handlinger, som å hente informasjon og anmeldelser på nett. Derfor gir det mening å opprette klasser der vi kan definere disse handlingene. Men siden bøker og filmer også er utlånsobjekter, så må vi sørge for at `Bok` og `Film` arver alle datafeltene og metodene til `Utlånsobjekt`. Dette viser vi med følgende piler: 
 
@@ -79,10 +79,10 @@ Vi har sett at det kan være aktuelt å trekke ut noen av datafeltene og metoden
 <img src="superklasse_prosess2.svg" width="100%">
 
 1. I forrige kapittel trakk vi ut datafelter og metoder som har et mer spesifikt ansvar enn bare en bok, nemlig anmeldelser av en bok. Vi fikk en "har"-relasjon mellom den opprinnelige klassen og den nye klassen - en bok har bokanmeldelser. 
-2. I dette kapittelet trakk vi ut datafelter og metoder som to klasser har til felles. Vi fikk en "arver fra"-relasjon mellom de opprinnelige klassene og den nye klassen - bøker og filmer arver fra utlånsobjekter. Det betyr at bøker og filmer er utlånsobjekter med noen ekstra datafelter og metoder. Derfor sier vi også at  bøker og filmer er *spesialtilfeller* av utlånsobjekter. 
+2. I dette kapittelet trakk vi ut datafelter og metoder som to klasser har til felles. Vi fikk en "arver fra"-relasjon mellom de opprinnelige klassene og den nye klassen - bøker og filmer arver fra utlånsobjekter. Det betyr at bøker og filmer *er* utlånsobjekter, som også har noen ekstra datafelter og metoder.
 
 
-Figurene ovenfor viser at når vi deler opp klasser, så ender vi altså opp med relaterte klasser. Hva med klassene vi har fra starten av? Kan vi finne relasjoner mellom dem? Er for eksempel `Bokhylle` og`Bok` relaterte? Hvis ja, er det en "har"-relasjon eller en "arver fra"-relasjon? Vi kan ikke si at`Bok` er et spesialtilfelle av en `Bokhylle`, så det er ikke en "arver fra"-relasjon.  Men vi kan si at en bokhylle har bøker! Vi kan altså legge til en "har"-relasjon mellom disse klassene: 
+Figurene ovenfor viser at når vi deler opp klasser, så ender vi altså opp med relaterte klasser. Hva med klassene vi har fra starten av? Kan vi finne relasjoner mellom dem? Er for eksempel `Bokhylle` og`Bok` relaterte? Hvis ja, er det en "har"-relasjon eller en "arver fra"-relasjon? Vi kan ikke si at en bok er en bokhylle (eller motsatt), så det er ikke en "arver fra"-relasjon.  Men vi kan si at en bokhylle har bøker! Vi kan altså legge til en "har"-relasjon mellom disse klassene: 
 
 <img src="komposisjon2.svg" width="40%">
 
@@ -94,7 +94,7 @@ Vi kan nå tegne et klassediagram der vi tar med alle relasjonene vi har funnet:
 
 <img src="klasserelasjoner.svg" width="70%">
 
-Her har vi ikke skrevet "har" og "arver fra", siden denne informasjonen allerede finnes i diagrammet!
+Her har vi ikke skrevet "har" og "arver fra", siden denne informasjonen allerede finnes i diagrammet:
 
 1. Diamantform betyr "har"-relasjon. 
 	- Diamantform uten fyll er en svak "har"-relasjon.  En bok kan eksistere uten å være i en bokhylle, så denne "har"-relasjonen er svak. 
@@ -118,9 +118,9 @@ I klassediagrammet ovenfor vises eksempler på alle disse punktene.
 
 - Når to klasser har felles datafelter og metoder, kan vi lage en superklasse som inneholder disse. 
 - En klasse arver datafeltene og metodene til sin superklasse. 
-- Å bruke arv har flere fordeler - vi unngår repitisjon, deler opp ansvar og muliggjør gjenbruk.
+- Å bruke arv har flere fordeler, blant annet at vi unngår repitisjon og muliggjør gjenbruk.
 - To klasser kan være relaterte på forskjellige måter. To viktige typer er "har"-relasjon og "arver fra"-relasjon. Vi kan vise relasjoner mellom klasser i et UML-klassediagram. 
 
 ## Oppgaver
 
-## Løsninger
+## Løsningsforslag

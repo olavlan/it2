@@ -6,16 +6,16 @@ I forrige kapittel begynte vi å planlegge et ønsket boksystem. Bøker og perso
 
 <img src="modell_eksempeldata.svg" width="70%">
 
-Merk at vi fyller inn verdier på samme måte i alle bøker. Dette gjør det lett å se at objektene er av samme type. Hadde vi skrevet sideantallet på en bok, men antall kapitler på en annen bok, ville informasjonen kunne oppfattes som ustrukturert. Vi gjør det strukturert ved å ta utgangspunkt i en *mal*: 
+Merk at vi fyller inn data på samme måte i alle bøker. Dette gjør det lett å se at objektene er av samme type. Hadde vi skrevet sideantallet på en bok, men antall kapitler på en annen bok, ville informasjonen kunne oppfattes som ustrukturert. Vi gjør det strukturert ved å ta utgangspunkt i en *mal*: 
 
 <img src="objekt_fra_oppskrift.svg" width="100%">
 
-De hvite, rette boksene er maler som vi bruker til å opprette objekter. Når vi oppretter en bok, skal altså tittel, forfatter og sideantall fylles inn. Når vi oppretter en person, skal navn og alder fylles inn. For å skille mellom maler og objekter, bruker vi følgende begreper: 
+De hvite, rette boksene er maler som vi bruker til å opprette objekter. Når vi oppretter en bok, skal altså tittel, forfatter og sideantall fylles inn, mens når vi oppretter en person, skal navn og alder fylles inn. For å skille mellom maler og objekter, bruker vi følgende begreper: 
 
-* I malen har vi *datafelter*. De forteller hva som skal fylles ut når objekter opprettes. "tittel" er et datafelt. 
+* I malen har vi *datafelter*. De forteller hvilke data som skal fylles inn når objekter opprettes. "tittel" er et datafelt. 
 * I objektene fyller vi inn *verdier* på de ulike datafeltene. Det første bokobjektet har verdien "Sofies verden" på datafeltet "tittel". 
 
-Når vi snakker om objekter generelt, bruker vi altså begrepet datafelter, og når vi snakker om et spesifikt objekt, bruker vi begrepet verdier. 
+Når vi snakker om objekter generelt, bruker vi altså begrepet *datafelter*, mens når vi snakker om et spesifikt objekt, bruker vi begrepet *verdier*. 
 
 ## Klasser
 
@@ -31,11 +31,11 @@ Her skriver vi handlingene som funksjoner, for å vise at det nettopp er funksjo
 
 <img src="objekt_fra_klasse.svg" width="80%">
 
-Vi ser at hvert objekt får en kopi av handlingene. Grunnen til det er at når vi skal utføre en handling, må vi først "gå inn" på et spesifikt objekt, og deretter utføre handlingen på det objektet. Å gjøre handlingen `lån_ut()` på det første bokobjektet (*Sofies verden*) kan gi et annet resultat enn på det andre bokobjektet (*Beatles*). Her kan du se hvordan handlinger kan ha ulikt resultat på ulike objekter: 
+Hvert objekt får altså handlingene fra malen. Dette er for å vise at når vi skal utføre en handling, må vi først "gå inn" på et spesifikt objekt, og deretter utføre handlingen på det objektet. Å gjøre handlingen `lån_ut()` på det første bokobjektet (*Sofies verden*) kan gi et annet resultat enn på det andre bokobjektet (*Beatles*). Her kan du se hvordan handlinger kan ha ulikt resultat på ulike objekter: 
 
 <img src="objekter_metodekall.svg" width="70%">
 
-Nå som vi har inkludert både datafelter og handlinger i malene, har vi klasser! En klasse er nemlig akkurat det - en mal på objekter av samme type, der vi tar med både datafelter og handlinger. Vi skal senere se hvordan man programmerer en klasse, men vi bør alltid skissere klassene i et diagram først. I et slikt diagram bør hver klasse ha et navn med stor forbokstav: 
+Nå som malene både inneholder datafelter og handlinger, kan vi si at de er klasser! En klasse er nemlig akkurat det - en mal på objekter av samme type, der vi tar med både datafelter og handlinger. Vi skal senere se hvordan man programmerer en klasse, men vi bør alltid skissere klassene i et diagram først. I et slikt diagram må hver klasse også ha et navn med stor forbokstav: 
 
 <img src="klasser_med_navn.svg" width="40%">
 
@@ -53,21 +53,13 @@ Hvilke klasser kommer disse objektene fra? For eksempel har vi to bokhylleobjekt
 
 <img src="klasse_bokhylle.svg" width="15%">
 
-Legg merke til  at handlingene nå har en parameter. Det er fordi vi må vite hvilken bok som eventuelt skal legges til eller fjernes fra hylla. 
+Legg merke til  at handlingene nå har en parameter - på disse handlingene må vi vite hvilken bok som skal legges til eller fjernes fra hylla. 
 
-Vi kan gjenta denne prosessen og lage et fullstendig klassediagram for boksystemet, med datafelter, handlinger og parametre: 
+Vi kan gjenta denne prosessen for de andre objektene, og tegne alle klassene for bokprogrammet i et felles diagram: 
 
 <img src="klasse_alle.svg" width="100%">
 
-Vi kan altså opprette objekter fra fem forskjellige klasser. Antagelig kommer vi bare å opprette ett Boksamling-objekt, og mange objekter fra de andre klassene. 
-
-I diagrammet har vi forsøkt å plassere handlingene i klassene de hører hjemme. Hvordan vet vi hvor en handling hører hjemme? Det første spørsmålet vi kan stille er:
-
-1. Hvilket objekt gjøres handlingen på? Hvis vi vil søke etter en bok, må vi søke i hele boksamlingen, og derfor gjøres handlingen på et Boksamling-objekt. 
-
-	Noen ganger har vi ikke et klart svar på spørsmålet over. For eksempel, når vi legger en bok i en bokhylle, gjør vi da en handling med boka eller bokhylla? Begge deler! Så hvorfor plasserte vi handlingen i Bokhylle-klassen? Vi kan stille et annet nyttig spørsmål hvis vi er i tvil:
-
-2. Hvilke datafelter bør vi ha tilgang til når vi gjør handlinger? Når vi legger en bok i en bokhylle, er vi kanskje mest interessert i egenskaper ved hylla, for eksempel om den har  ledig plass, hvilken seksjon av hylla boka kan legges, og så videre.
+Vi kan nå opprette objekter fra fem forskjellige klasser. Antagelig kommer vi bare å opprette ett Boksamling-objekt, mens fra de andre klassene kommer vi til å opprette mange objekter. 
 
 ## Oppsummering
 
@@ -77,10 +69,10 @@ I diagrammet har vi forsøkt å plassere handlingene i klassene de hører hjemme
 
 ## Oppgaver
 
-**Oppgave A.** Ta utgangspunkt i oppgave A fra forrige kapittel. Se på objektene i modellen. Hvilke klasser kommer objektene fra? Tegn et klassediagram etter eksemplene gitt i dette kapittelet. Få med alle relevante egenskaper og handlinger.
+**Oppgave A.** Ta utgangspunkt i oppgave A fra forrige kapittel. Se på objektene i modellen. Hvilke klasser kommer objektene fra? Tegn et klassediagram etter eksemplene gitt i dette kapittelet. Få med alle relevante datafelter og handlinger.
 
 **Oppgave B.** Ta utgangspunkt i oppgave B fra forrige kapittel og tegn klassediagram (som i oppgaven over).
 
-## Fasiter
+## Løsningsforslag.
 
-
+Kommer.
